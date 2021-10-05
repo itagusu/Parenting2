@@ -1,0 +1,23 @@
+  <%= form_with model:@user, local:true do |f| %>
+  <div class="field">
+      <%= f.label :プロフィール画像 %><br />
+      <%#= f.attachment_field :profile_image_id %>
+    </div>
+
+  <div class="field">
+      <%= f.label :（姓） %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :（名） %><br />
+      <%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
+    </div>
+
+  <div class="field">
+      <%= f.label :自己紹介文 %><br />
+      <%= f.text_area :introduction, autofocus: true, placeholder: "ここに入力" %>
+    </div>
+
+     <%= f.submit "保存",class: 'btn btn-success btn-sm' %>
+  <% end %>

@@ -1,0 +1,4 @@
+<%= render 'public/users/list', user: @user %>
+
+<%= link_to "edit", edit_user_path(@user) %>
+<%= link_to "退会", users_confirm_path %>

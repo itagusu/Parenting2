@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, controllers: {
+  sessions: 'admin/sessions'
+}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get 'serch' => 'serches#serch'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   }
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'my_page' => 'users#my_page'
     get 'users/confirm' => 'users#confirm'
     patch 'users/withdraw' => 'users#withdraw'
     resources :users, only: [:edit, :update, :index, :show] do

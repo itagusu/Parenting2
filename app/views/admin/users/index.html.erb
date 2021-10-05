@@ -1,0 +1,11 @@
+
+  <% @users.each do |user| %>
+    <%= user.id %>
+    <%= link_to user.last_name + user.first_name %>
+    <%= user.email %>
+    <% if user.is_deleted == true %>
+      <p>退会</p>
+    <% elsif user.is_deleted == false %>
+      <p>有効</p>
+    <% end %>
+  <% end %>

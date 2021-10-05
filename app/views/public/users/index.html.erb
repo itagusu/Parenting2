@@ -1,0 +1,6 @@
+<% @users. each do |user| %>
+プロフィール画像<br>
+<%= user.profile_image_id %><br>
+氏名<br>
+<%= link_to user.last_name + user.first_name, user_path(user.id) %><br><br>
+<% end %>
