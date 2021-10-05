@@ -18,14 +18,20 @@
           </div>
           <ul>
             <% if user_signed_in? %>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "サイト概要", about_path %></li>
               <li><%= link_to "マイページ", my_page_path %></li>
+              <li><%= link_to "新規投稿" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+
+
             <% elsif admin_signed_in? %>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              <li><%= link_to "ユーザー一覧", admin_users_path %></li>
+              <li><%= link_to "ジャンル一覧" %></li>
             <% else %>
+              <li><%= link_to "サイト概要", about_path %></li>
               <li><%= link_to "新規登録", new_user_registration_path %></li>
               <li><%= link_to "ログイン", new_user_session_path %></li>
-              <li><%= link_to "サイト概要", about_path %></li>
             <% end %>
           </ul>
         </div>
