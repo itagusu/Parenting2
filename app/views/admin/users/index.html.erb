@@ -1,7 +1,7 @@
 
   <% @users.each do |user| %>
     <%= user.id %>
-    <%= link_to user.last_name + user.first_name %>
+    <%= link_to user.last_name + user.first_name, admin_user_path(user) %>
     <%= user.email %>
     <% if user.is_deleted == true %>
       <p>退会</p>
