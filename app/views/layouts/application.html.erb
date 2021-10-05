@@ -17,13 +17,13 @@
             <%= link_to "Parenting", root_path %>
           </div>
           <ul>
-            <%# if user_sign_in? %>
-              <li><%#= link_to "ログアウト", root_path %></li>
-            <%# else %>
-              <li><%= link_to "新規登録", root_path %></li>
-              <li><%= link_to "ログイン", root_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
               <li><%= link_to "サイト概要", about_path %></li>
-            <%# end %>
+            <% end %>
           </ul>
         </div>
       </nav>

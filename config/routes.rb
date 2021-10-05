@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get 'serch' => 'serches#serch'
   scope module: :public do
+    devise_for :users, controllers: {
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
+  }
     root to: 'homes#top'
     get 'about' => 'homes#about'
     get 'users/confirm' => 'users#confirm'
