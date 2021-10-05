@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="container">
+          <div>
+            <%= link_to "Parenting", root_path %>
+          </div>
+          <ul>
+            <%# if user_sign_in? %>
+              <li><%#= link_to "ログアウト", root_path %></li>
+            <%# else %>
+              <li><%= link_to "新規登録", root_path %></li>
+              <li><%= link_to "ログイン", root_path %></li>
+              <li><%= link_to "サイト概要", about_path %></li>
+            <%# end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
