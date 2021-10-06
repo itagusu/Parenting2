@@ -1,6 +1,5 @@
 <% @users. each do |user| %>
-プロフィール画像<br>
-<%= user.profile_image_id %><br>
-氏名<br>
+<%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpeg" %>
+氏名
 <%= link_to user.last_name + user.first_name, user_path(user.id) %><br><br>
 <% end %>

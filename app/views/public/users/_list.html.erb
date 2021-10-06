@@ -1,5 +1,5 @@
 プロフィール画像<br>
-<%= user.profile_image_id %><br>
+<%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
 氏名<br>
 <%= user.last_name %><%= user.first_name %><br>
 自己紹介<br>
