@@ -4,9 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :posts, dependent: :destroy
   attachment :profile_image
 
   def active_for_authentication?
     is_deleted == false
   end
+
+
+
 end

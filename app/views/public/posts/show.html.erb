@@ -1,0 +1,5 @@
+<%= attachment_image_tag current_user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
+<%= current_user.last_name %><%= current_user.first_name %><br>
+<p>後ほどジャンル名</p><br>
+<%= attachment_image_tag @post, :image, size: "300x300" %><br>
+<%= @post.body %>
