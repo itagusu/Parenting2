@@ -1,4 +1,13 @@
-<%= render 'public/users/list', user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/users/list', user: @user %>
+    </div>
 
-<%= link_to "edit", edit_user_path(@user) %>
-<%= link_to "退会", users_confirm_path %>
+    <div class="col-md-8 ofset-md-1">
+      <%= render 'public/posts/index', posts: @posts %>
+    </div>
+  </div>
+</div>
+
+

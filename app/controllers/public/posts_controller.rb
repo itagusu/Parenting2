@@ -8,12 +8,12 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to post_path(current_user)
+    redirect_to post_path(@post)
 
   end
 
   def index
-
+    @posts = Post.all
   end
 
   def show
@@ -21,6 +21,9 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to my_page_path
 
   end
 

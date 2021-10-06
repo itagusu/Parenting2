@@ -1,5 +1,8 @@
-<%= attachment_image_tag current_user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
-<%= current_user.last_name %><%= current_user.first_name %><br>
+<%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
+<%= @post.user.last_name %><%= @post.user.first_name %><br>
 <p>後ほどジャンル名</p><br>
 <%= attachment_image_tag @post, :image, size: "300x300" %><br>
-<%= @post.body %>
+<%= @post.body %><br>
+<% if @post.user == current_user %>
+  <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
+<% end %>
