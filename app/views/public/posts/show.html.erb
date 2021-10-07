@@ -1,9 +1,33 @@
-<%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
-<%= @post.user.last_name %><%= @post.user.first_name %><br>
-<p>後ほどジャンル名</p><br>
-<%= attachment_image_tag @post, :image, size: "300x300" %><br>
-<%= @post.body %><br>
-<%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
-<% if @post.user == current_user %>
-  <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
+        <%= @post.user.last_name %><%= @post.user.first_name %><br>
+        <p>後ほどジャンル名</p><br>
+        <%= attachment_image_tag @post, :image, size: "300x300" %><br>
+        <%= @post.body %><br>
+        <%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
+        <% if @post.user == current_user %>
+          <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
+        <% end %>
+    </div>
+    <div class="col-md-5 offset-md-1">
+      <% @post.post_comments.each do |post_comment| %>
+        <%= attachment_image_tag post_comment.user, :profile_image, size: "70x70", fallback: "default_profile.jpeg" %>
+        <%= post_comment.user.last_name %>
+        <%= post_comment.created_at.strftime('%Y年%-m月%-d日') %>
+        <%= post_comment.comment %><br><br>
+      <% end %>
+      <br>
+      <%= @post.post_comments.count %>件のコメント<br><br>
+
+      <%= form_with(model:[@post, @post_comment],local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %><br>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
