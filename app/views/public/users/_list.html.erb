@@ -1,10 +1,22 @@
 プロフィール画像<br>
-<%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
+<%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %>
+<% if current_user != user %>
+    <% if current_user.following?(user) %>
+      <%= link_to "フォローを解除", user_relationships_path(user), method: :delete, class: "btn btn-warning" %>
+    <% else %>
+      <%= link_to "フォローする", user_relationships_path(user), method: :post, class: "btn btn-success" %>
+    <% end %>
+  <% end %><br>
 氏名<br>
 <%= user.last_name %><%= user.first_name %><br>
 自己紹介<br>
-<%= user.introduction %>
+<%= user.introduction %><br>
+
+フォロー:<%= link_to user.followings.count %>
+フォロワー:<%= link_to user.followers.count %>
+
   <% if user == current_user %>
     <%= link_to "edit", edit_user_path(user) %>
     <%= link_to "退会", users_confirm_path %>
   <% end %>
+

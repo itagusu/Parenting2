@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
-        <%= @post.user.last_name %><%= @post.user.first_name %><br>
+        <%= link_to @post.user.last_name + @post.user.first_name, user_path(@post.user) %><br>
         <p>後ほどジャンル名</p><br>
         <%= attachment_image_tag @post, :image, size: "300x300" %><br>
         <%= @post.body %><br>
@@ -14,7 +14,7 @@
     <div class="col-md-5 offset-md-1">
       <% @post.post_comments.each do |post_comment| %>
         <%= attachment_image_tag post_comment.user, :profile_image, size: "70x70", fallback: "default_profile.jpeg" %>
-        <%= post_comment.user.last_name %>
+        <%= link_to post_comment.user.last_name + post_comment.user.first_name, user_path(post_comment.user) %>
         <%= post_comment.created_at.strftime('%Y年%-m月%-d日') %>
         <%= post_comment.comment %><br><br>
       <% end %>
