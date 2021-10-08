@@ -7,6 +7,19 @@
         <%= attachment_image_tag @post, :image, size: "300x300" %><br>
         <%= @post.body %><br>
         <%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
+
+        <% if @post.favorited_by?(current_user) %>
+          <%= link_to post_favorites_path(@post),method: :delete do %>
+            <i class="fas fa-heart" style="color: deeppink;"></i>
+            <%= @post.favorites.count %>
+          <% end %>
+        <% else %>
+          <%= link_to post_favorites_path(@post),method: :post do %>
+            <i class="far fa-heart"></i>
+            <%= @post.favorites.count %>
+          <% end %>
+        <% end %><br>
+
         <% if @post.user == current_user %>
           <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
         <% end %>
