@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-
   attachment :image
   belongs_to :user
   has_many :post_comments, dependent: :destroy
@@ -8,5 +7,4 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
 end

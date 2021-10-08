@@ -1,36 +1,34 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
-  sessions: 'admin/sessions'
-}
+    sessions: 'admin/sessions'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get 'serch' => 'serches#serch'
   scope module: :public do
     devise_for :users, controllers: {
-    sessions: 'public/sessions',
-    passwords: 'public/passwords',
-    registrations: 'public/registrations'
-  }
+      sessions: 'public/sessions',
+      passwords: 'public/passwords',
+      registrations: 'public/registrations'
+    }
     root to: 'homes#top'
     get 'about' => 'homes#about'
     get 'my_page' => 'users#my_page'
     get 'users/confirm' => 'users#confirm'
     patch 'users/withdraw' => 'users#withdraw'
-    resources :users, only: [:edit, :update, :index, :show] do
-      resource :relationships, only: [:create, :destroy]
+    resources :users, only: %i[edit update index show] do
+      resource :relationships, only: %i[create destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
-      resource :favorites, only: [:create, :destroy]
-      resources :post_comments, only: [:create, :destroy]
+    resources :posts, only: %i[new create index show destroy] do
+      resource :favorites, only: %i[create destroy]
+      resources :post_comments, only: %i[create destroy]
     end
   end
 
   namespace :admin do
-    resources :users, only: [:edit, :update, :index, :show]
-    resources :genres, only: [:create, :edit, :update, :index, :destroy]
+    resources :users, only: %i[edit update index show]
+    resources :genres, only: %i[create edit update index destroy]
   end
-
 end
-

@@ -1,7 +1,4 @@
 class Public::PostCommentsController < ApplicationController
-
-  
-
   def create
     post = Post.find(params[:post_id])
     comment = PostComment.new(post_comment_params)
@@ -11,18 +8,11 @@ class Public::PostCommentsController < ApplicationController
     redirect_to post_path(post)
   end
 
-  def destroy
+  def destroy; end
 
-  end
-
-private
+  private
 
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
-
-
-
-
-
 end

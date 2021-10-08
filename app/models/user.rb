@@ -10,16 +10,16 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   # 自分がフォローされる側のとき
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # 自分がフォローする側のとき
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   # 自分がフォローしている人
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 自分がフォローされている人
   has_many :followings, through: :relationships, source: :followed
 
   def follow(user_id)
-    #relationships.create(followed_id: user_id)
+    # relationships.create(followed_id: user_id)
     relationship = relationships.new(followed_id: user_id)
     relationship.save
   end

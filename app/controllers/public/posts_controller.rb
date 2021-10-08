@@ -1,5 +1,4 @@
 class Public::PostsController < ApplicationController
-
   def new
     @post = Post.new
   end
@@ -9,7 +8,6 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.save
     redirect_to post_path(@post)
-
   end
 
   def index
@@ -25,10 +23,10 @@ class Public::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to my_page_path
-
   end
 
-private
+  private
+
   def post_params
     params.require(:post).permit(:image, :body, :create_at)
   end

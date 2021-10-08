@@ -1,11 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  def created; end
 
-  def created
-
-  end
-
-  def destroy
-
-  end
-
+  def destroy; end
 end
