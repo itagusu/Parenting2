@@ -13,9 +13,9 @@
     <header class="header">
       <nav class="navbar">
         <div class="container">
-          <div>
-            <%= link_to "Parenting", root_path %>
-          </div>
+          <%= link_to root_path, class: 'navbar-brand  ml-3 col-md-3 offset-md-1' do %>
+            <%= image_tag 'logo.jpg', :size => '130x100', class: 'd-inline-block'%>
+          <% end %>
           <ul>
             <% if user_signed_in? %>
               <li><%= link_to "サイト概要", about_path %></li>

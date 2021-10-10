@@ -6,6 +6,6 @@ class Public::SearchesController < ApplicationController
 
   def genre
     @genre = Genre.find(params[:id])
-    @posts = @genre.post
+    @posts = @genre.posts
   end
 end
