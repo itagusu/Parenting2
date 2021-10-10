@@ -8,4 +8,9 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.looks(word)
+    word == "partial_match"
+    @post = Post.where("body LIKE?","%#{word}%")
+  end
 end

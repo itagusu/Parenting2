@@ -18,6 +18,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @genres = Genre.all
   end
 
   def show

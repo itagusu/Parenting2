@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get 'my_page' => 'users#my_page'
     get 'users/confirm' => 'users#confirm'
     patch 'users/withdraw' => 'users#withdraw'
+    get '/search/genres/:id' => 'searches#genre', as: 'genre_search'
+    get "search" => "searches#search"
     resources :users, only: %i[edit update index show] do
       resource :relationships, only: %i[create destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
