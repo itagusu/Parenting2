@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :set_genres, only:[:new, :create, :show, :index, :destroy]
   def new
     @post = Post.new
   end
@@ -6,8 +7,13 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post)
+    # byebug
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      byebug
+      render :new
+    end
   end
 
   def index
@@ -25,9 +31,13 @@ class Public::PostsController < ApplicationController
     redirect_to my_page_path
   end
 
+  def set_genres
+    @genres = Genre.all
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:image, :body, :create_at)
+    params.require(:post).permit(:id, :genre_id, :image, :body, :create_at)
   end
 end

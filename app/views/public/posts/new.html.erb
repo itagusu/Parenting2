@@ -1,7 +1,7 @@
 
   <%=form_with model:@post, local:true do |f| %>
     <h4>ジャンル機能</h4>
-    #後ほど実装<br>
+    <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--選択してください--" %><br>
 
     <%= f.attachment_field :image %><br>
 

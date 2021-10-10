@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
         <%= link_to @post.user.last_name + @post.user.first_name, user_path(@post.user) %><br>
-        <p>後ほどジャンル名</p><br>
+        <p><%= @post.genre.name %></p><br>
         <%= attachment_image_tag @post, :image, size: "300x300" %><br>
         <%= @post.body %><br>
         <%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
