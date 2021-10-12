@@ -5,14 +5,15 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
   <p class="form">
-    <span class="field">
+    <div class="name-field">
+    <span class="field-last_name">
       <%= f.text_field :last_name, autofocus: true, class: "form-control", :size=>"10", placeholder: "姓" %>
     </span>
 
-    <span class="field">
+    <span class="field-first_name">
       <%= f.text_field :first_name, autofocus: true, class: "form-control", :size=>"10", placeholder: "名" %><br><br>
     </span>
-
+    </div>
     <span class="field">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", :size=>"42", placeholder: "email_address" %><br><br>
     </span>
