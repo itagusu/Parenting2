@@ -26,16 +26,16 @@ body {
 
 /* 高さを指定することにより画像が表示される */
 #box{
-  height: 782px;
+  height: 880px;
   position: relative;
-      z-index: 1;
+  z-index: 1;
   .main-visual-content {
-    width: 100%;
-    height: 300px; /* 親の高さに揃える */
-    background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
-    text-align: center; /* 文字を中央揃えにする */
-    padding-top: 105px; /* 上側の内側余白で垂直方向の位置を調整 */
-    position: absolute;
+    width: 40%;
+    height: 270px;
+    background-color: rgba(0, 0, 0, 0.2); /* 背景色を半透明の黒にする */
+    text-align: center;
+    margin: 100px 0 0 100px; /*上 右 下 左の順 */
+    position: absolute; /*画像に文字を重ねる */
     z-index: 20;
   }
   .image1 {
@@ -67,13 +67,14 @@ header {
   //background-image: image-url("family.jpg");
   background-color: #FFCCFF;
   width: 260px;
-  height: 100vh;
+  height: 105vh;
 
 }
 
 .yield{
   width: 100%;
   height: 100%;
+  margin: 20px;
 }
 
 .nav{

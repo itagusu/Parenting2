@@ -10,10 +10,10 @@
 }
 
 .new_user{
-  margin: 0 150px;
+  margin: 0 300px;
   .form {
     text-align: left;
-    display: inline-block;
+    display: inline-block; /* ブロック要素横並び */
     padding: 20px 20px;
   }
     .name-field{

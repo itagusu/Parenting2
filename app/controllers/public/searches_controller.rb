@@ -2,6 +2,7 @@ class Public::SearchesController < ApplicationController
 
   def search
     @posts = Post.looks(params[:word])
+    #@users = User.looks(params[:word])
   end
 
   def genre

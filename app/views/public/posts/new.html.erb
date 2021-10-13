@@ -1,12 +1,12 @@
-
+<div class="post_new">
   <%=form_with model:@post, local:true do |f| %>
     <h4>ジャンル機能</h4>
-    <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--選択してください--" %><br>
-
-    <%= f.attachment_field :image %><br>
-
+    <p><%= f.collection_select :genre_id, @genres, :id, :name, selected: 1 %></p>
+      <%= f.attachment_field :image %><br>
     <h4>本文</h4>
-    <%= f.text_area :body %><br>
+    <div class="post_form">
+      <%= f.text_area :body, rows:7, class: "form-control" %><br>
+    </div>
     <%= f.submit '投稿' %>
-
   <% end %>
+</div>

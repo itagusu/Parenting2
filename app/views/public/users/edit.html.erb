@@ -1,23 +1,34 @@
-  <%= form_with model:@user, local:true do |f| %>
+<%= form_with model:@user, local:true do |f| %>
   <div class="field">
-      <%= f.label :プロフィール画像 %><br />
+    <p>
+      <%= f.label :プロフィール画像 %><br>
       <%= f.attachment_field :profile_image %>
-    </div>
-
-  <div class="field">
-    <%= f.label :（姓） %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    </p><br>
   </div>
 
   <div class="field">
-    <%= f.label :（名） %><br />
-    <%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
+    <p>
+      <%= f.label :姓 %><br>
+      <%= f.text_field :last_name, autofocus: true %>
+    </p>
   </div>
 
   <div class="field">
-    <%= f.label :自己紹介文 %><br />
-    <%= f.text_area :introduction, autofocus: true, placeholder: "ここに入力" %>
+    <p>
+      <%= f.label :名 %><br>
+      <%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
+    </p><br>
+  </div>
+
+  <div class="field">
+    <p>
+      <%= f.label :自己紹介文 %><br>
+      <%= f.text_area :introduction, autofocus: true, placeholder: "ここに入力" %>
+    </p><br>
   </div>
 
     <%= f.submit "保存",class: 'btn btn-success btn-sm' %>
+    <% if @user == current_user %>
+      <%= link_to "退会", users_confirm_path %>
+    <% end %>
   <% end %>
