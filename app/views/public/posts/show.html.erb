@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+      <div class="user_profile_image">
       <%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %><br>
+      </div>
         <%= link_to @post.user.last_name + @post.user.first_name, user_path(@post.user) %><br>
         <p><%= @post.genre.name %></p><br>
         <%= attachment_image_tag @post, :image, size: "300x300" %><br>

@@ -1,1 +1,11 @@
-<%= render 'public/posts/index', posts: @posts %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/searches/genre_list', genres: @genres %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <%= render 'public/posts/index', posts: @posts %>
+    </div>
+  </div>
+</div>

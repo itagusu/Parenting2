@@ -27,12 +27,12 @@
 
     <span class="field">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", :size=>"42", placeholder: "password(再確認)" %>
-    </span>
+    </span><br>
   </p>
     <div class="btn-border">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <%#= render "devise/shared/links" %>
 </div>

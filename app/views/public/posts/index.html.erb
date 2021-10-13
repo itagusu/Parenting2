@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <% @genres.each do |genre| %>
-        <%= link_to genre.name, genre_search_path(genre) %>
-      <% end %>
+      <%= render 'public/searches/genre_list', genres: @genres %>
     </div>
     <div class="col-md-8 offset-md-1">
       <%= render 'public/posts/index', posts: @posts %>
