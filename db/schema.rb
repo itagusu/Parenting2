@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_084923) do
+ActiveRecord::Schema.define(version: 2021_10_14_021901) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,21 @@ ActiveRecord::Schema.define(version: 2021_10_09_084923) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "send_id", null: false
+    t.integer "receive_id", null: false
+    t.integer "post_id"
+    t.integer "post_comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_comment_id"], name: "index_notifications_on_post_comment_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["receive_id"], name: "index_notifications_on_receive_id"
+    t.index ["send_id"], name: "index_notifications_on_send_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
