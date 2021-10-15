@@ -5,7 +5,7 @@ class Notification < ApplicationRecord
   #optional: trueはnilを許可するため　ex)フォローの際の通知には投稿やいいねはnil
   belongs_to :post, optional: true
   belongs_to :post_comment, optional: true
-  belongs_to :send, class_name: 'User', foreign_key: 'sender_id', optional: true
+  belongs_to :post_send, class_name: 'User', foreign_key: 'send_id', optional: true
   belongs_to :receive, class_name: 'User', foreign_key: 'receive_id', optional: true
 
 end

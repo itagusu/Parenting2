@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resource :favorites, only: %i[create destroy]
       resources :post_comments, only: %i[create destroy]
     end
+    resources :notifications, only: :index
   end
 
   namespace :admin do

@@ -1,0 +1,46 @@
+
+  notifications = @notifications.where.not(send_id: current_user.id)
+<% if @notifications.exists? %>
+  <%= render notifications %>
+<% else %>
+  <p>
+    | 通知はありません
+  </p>
+<% end %>
+
+<% send = @notifications.send %>
+<% receive = notification.receive %>
+  <div class='form-inline'>
+    <span>
+      <%= link_to user_path(send) do %>
+        <%= image_tag avatar_url(send).to_s, class: "icon_mini" %>
+      <% end %>
+        <%= send.last_name %>
+        <%= 'さんが' %>
+
+      - case notification.action
+      - when 'follow' then
+        = "あなたをフォローしました"
+    </span>
+      - when 'favorite' then
+        <%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
+        <%= "にいいねしました" %>
+      - when 'post_comment' then
+        <%= if notification.post.user_id == receive.id %>
+          <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
+        <% else %>
+          <span>
+          <%= link_to post_path(notification.post) do %>
+            <%= image_tag avatar_url(notification.post.user).to_s, class: "icon_mini" %>
+              <strong>
+                <%= notification.post.user.last_name + 'さんの投稿' %>
+                <%= "にコメントしました" %>
+              </strong>
+        p.text-muted.mb-0
+          = PostComment.find_by(id: notification.post_comment_id)&.post_comment
+          </span>
+            
+
+  .small.text-muted.text-right
+    = time_ago_in_words(notification.created_at).upcase
+  hr

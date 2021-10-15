@@ -1,13 +1,15 @@
-<%= @user.id %>
-<%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %>
-    <%= @user.last_name %>
-    <%= @user.first_name %>
-    <%= @user.email %>
-    <%= @user.introduction %>
-    <% if @user.is_deleted == true %>
-      <p>退会</p>
-    <% elsif @user.is_deleted == false %>
-      <p>有効</p>
-    <% end %>
+  <%= @user.id %>
+  <div class="user_profile_image">
+    <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpeg" %>
+  </div>
+  <%= @user.last_name %>
+  <%= @user.first_name %>
+  <%= @user.email %>
+  <%= @user.introduction %>
+  <% if @user.is_deleted == true %>
+    <p>退会</p>
+  <% elsif @user.is_deleted == false %>
+    <p>有効</p>
+  <% end %>
 
-    <%= link_to "編集", edit_admin_user_path(@user) %>
+  <%= link_to "編集", edit_admin_user_path(@user) %>
