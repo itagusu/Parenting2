@@ -23,7 +23,9 @@
     </div>
     <div class="col-md-5 offset-md-1">
       <% @post.post_comments.each do |post_comment| %>
-        <%= attachment_image_tag post_comment.user, :profile_image, size: "70x70", fallback: "default_profile.jpeg" %>
+        <div class="user_profile_image">
+          <%= attachment_image_tag post_comment.user, :profile_image, size: "80x80", fallback: "default_profile.jpeg" %>
+        </div>
         <%= link_to post_comment.user.last_name + post_comment.user.first_name, user_path(post_comment.user) %>
         <%= post_comment.created_at.strftime('%Y年%-m月%-d日') %>
         <%= post_comment.comment %><br><br>

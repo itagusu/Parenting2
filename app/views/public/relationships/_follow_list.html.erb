@@ -1,0 +1,16 @@
+<table class="follow_list">
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user_path(user) do %>
+            <%= attachment_image_tag user, :profile_image, size: "80x80", fallback: "default_profile.jpeg" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user.last_name + user.first_name, user_path(user) %>
+        </td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
