@@ -14,7 +14,7 @@
     <p><%= user.last_name %><%= user.first_name %></p>
     <p><%= user.introduction %></p>
     <p>
-      フォロー:<%= link_to user.followings.count, user_followings_path(user) %>
+      フォロー:<%= link_to user.followings.count %>
       フォロワー:<%= link_to user.followers.count, user_followers_path(user) %>
     </p>
     <p>

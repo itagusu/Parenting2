@@ -31,7 +31,7 @@ class Post < ApplicationRecord
 
   def create_notification_post_comment!(current_user, post_comment_id)
     #自分以外のコメントしている人全員に通知を送る
-    temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
+    temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
       save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
     end

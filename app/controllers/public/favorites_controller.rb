@@ -5,7 +5,7 @@ class Public::FavoritesController < ApplicationController
     favorite.save
     # redirect_to post_path(post)
     # 非同期通信のため app/view/public/favorites/create.js.
-    @post.create_notification_Favorite!(current_user)
+    @post.create_notification_Favorite?(current_user)
   end
 
   def destroy
