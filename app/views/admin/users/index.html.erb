@@ -2,7 +2,7 @@
   <% @users.each do |user| %>
     <%= user.id %>
     <div class="user_profile_image">
-      <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpeg" %>
+      <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %>
     </div>
     <%= link_to user.last_name + user.first_name, admin_user_path(user) %>
     <%= user.email %>
