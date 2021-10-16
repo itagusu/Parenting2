@@ -20,8 +20,12 @@
           </div>
           <div class="search">
             <%= form_with url: search_path, local: true, method: :get do |f| %>
+            <div class="search_form">
               <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
+              </div>
+              <div class="search_btn">
               <%= f.submit "検索", class: "btn btn-outline-secondary fas fa-user-edit" %>
+              </div>
             <% end %>
           </div>
           <nav class="nav">

@@ -1,34 +1,38 @@
-<%= form_with model:@user, local:true do |f| %>
-  <div class="field">
-    <p>
-      <%= f.label :プロフィール画像 %><br>
-      <%= f.attachment_field :profile_image %>
-    </p><br>
-  </div>
+<div class="user_edit">
+  <%= form_with model:@user, local:true do |f| %>
+    <div class="field">
+      <p>
+        <%= f.label :プロフィール画像 %><br>
+        <%= f.attachment_field :profile_image %>
+      </p><br>
+    </div>
 
-  <div class="field">
-    <p>
-      <%= f.label :姓 %><br>
-      <%= f.text_field :last_name, autofocus: true %>
-    </p>
-  </div>
+    <div class="field">
+      <p>
+        <%= f.label :姓 %><br>
+        <%= f.text_field :last_name, autofocus: true %>
+      </p>
+    </div>
 
-  <div class="field">
-    <p>
-      <%= f.label :名 %><br>
-      <%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
-    </p><br>
-  </div>
+    <div class="field">
+      <p>
+        <%= f.label :名 %><br>
+        <%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
+      </p><br>
+    </div>
 
-  <div class="field">
-    <p>
-      <%= f.label :自己紹介文 %><br>
-      <%= f.text_area :introduction, autofocus: true, placeholder: "ここに入力" %>
-    </p><br>
-  </div>
+    <div class="field">
+      <p>
+        <%= f.label :自己紹介文 %><br>
+      </p>
+      <div class="edit-form">
+        <%= f.text_area :introduction, rows:7, class: "form-control", autofocus: true, placeholder: "ここに入力" %>
+      </div>
+    </div><br>
 
-    <%= f.submit "保存",class: 'btn btn-success btn-sm' %>
+    <%= f.submit "保存",class: 'btn btn-outline-success btn-sm' %>
     <% if @user == current_user %>
-      <%= link_to "退会", users_confirm_path %>
+      <%= link_to "退会", users_confirm_path, class: 'btn btn-outline-danger btn-sm' %>
     <% end %>
   <% end %>
+</div>
