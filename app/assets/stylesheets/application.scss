@@ -44,16 +44,16 @@ body {
     }
   }
   .image1 {
-    background-image: url(baby1.jpg);
+    background-image: image-url("baby1.jpg");
   }
   .image2 {
-    background-image: url(baby2.jpg);
+    background-image: image-url("baby2.jpg");
   }
   .image3 {
-    background-image: url(family.jpg);
+    background-image: image-url("family.jpg");
   }
   .image4 {
-    background-image: url(logo.jpg);
+    background-image: image-url("logo.jpg");
   }
 }
 
