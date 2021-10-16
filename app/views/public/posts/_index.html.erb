@@ -15,7 +15,9 @@
           <td><%#= render 'public/favorites/favorite_btn', post: @post %></td>
         </tr>
       <% end %>
-      <%= paginate posts %>
     </tbody>
   </table>
+  <ul class="pagination justify-content-center">
+    <%= paginate posts %>
+  </ul>
 </div>

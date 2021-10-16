@@ -31,6 +31,7 @@
         <%= post_comment.comment %><br><br>
       <% end %>
       <br>
+      
       <%= @post.post_comments.count %>件のコメント<br><br>
 
       <%= form_with(model:[@post, @post_comment],local: true) do |f| %>
