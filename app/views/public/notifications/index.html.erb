@@ -4,24 +4,22 @@
     <% sender = notification.post_send %>
     <% receiver = notification.receive %>
     <div class='form-inline'>
-      <span>
+      <div class="user_profile_image">
         <%= link_to user_path(sender) do %>
-          <%= attachment_image_tag(sender, :profile_image, size: "80x80", fallback: "default_profile.jpg") %>
+          <%= attachment_image_tag(sender, :profile_image, size: "35x35", fallback: "default_profile.jpg") %>
         <% end %>
-        <%= sender.last_name %>
-        さんが
+      </div>
+      <%= sender.last_name %><%= sender.first_name %>さんが
 
-        <% if notification.action == 'follow' %>
-
-        <% elsif notification.action == 'favorite' %>
-
-        <% elsif notification.action == 'post_comment' %>
-
-          <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
-        <% end %>
-
-      </span>
-  　</div>
+      <% if notification.action == 'follow' %>
+        あなたをフォローしました。
+      <% elsif notification.action == 'Favorite' %>
+        あなたの投稿にいいねしました。
+      <% elsif notification.action == 'post_comment' %>
+        あなたの投稿にコメントしました。<br>
+        <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
+      <% end %>
+　  </div>
   　<div class='small text-muted text-right'>
       <%=  time_ago_in_words(notification.created_at).upcase %>
     </div>
@@ -30,3 +28,7 @@
 <% else %>
   <p>通知はありません</p>
 <% end %>
+
+  <ul class="pagination justify-content-center">
+    <%= paginate @notifications %>
+  </ul>

@@ -15,12 +15,12 @@ class Post < ApplicationRecord
     @post = Post.where("body LIKE?","%#{word}%")
   end
 
-  def create_notification_Favorite?(current_user)
+  def create_notification_favorite?(current_user)
     # いいねがされているかを探す
-    temp = Notification.where(["send_id = ? and receive_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'Favorite' ])
+    temp = Notification.where(["send_id = ? and receive_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'favorite' ])
     # いいねされていないとき通知
     if temp.blank?
-      notification = current_user.active_notifications.new(post_id: id, receive_id: user_id, action: 'Favorite')
+      notification = current_user.active_notifications.new(post_id: id, receive_id: user_id, action: 'favorite')
       #自分の投稿に自分でいいねした際は通知されないようにする
       if notification.send_id == notification.receive_id
         notification.checked = true
