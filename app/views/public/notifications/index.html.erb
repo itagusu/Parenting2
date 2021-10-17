@@ -9,14 +9,14 @@
           <%= attachment_image_tag(sender, :profile_image, size: "35x35", fallback: "default_profile.jpg") %>
         <% end %>
       </div>
-      <%= sender.last_name %><%= sender.first_name %>さんが
+      <%= link_to sender.last_name + sender.first_name, user_path(sender), class: 'text-decoration-none text-info' %>さんが
 
       <% if notification.action == 'follow' %>
         あなたをフォローしました。
       <% elsif notification.action == 'Favorite' %>
-        あなたの投稿にいいねしました。
+        <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にいいねしました。
       <% elsif notification.action == 'post_comment' %>
-        あなたの投稿にコメントしました。<br>
+        <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にコメントしました。
         <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
       <% end %>
 　  </div>

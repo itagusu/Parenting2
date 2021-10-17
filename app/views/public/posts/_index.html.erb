@@ -9,7 +9,7 @@
               <%= attachment_image_tag(post.user, :profile_image, size: "60x60", fallback: "default_profile.jpg") %>
             <% end %><br>
             </div>
-            <%= link_to post.user.last_name + post.user.first_name, post_path(post) %><hr>
+            <%= link_to post.user.last_name + post.user.first_name, post_path(post), class: 'text-decoration-none text-secondary' %><hr>
           </td>
           <td><%= post.body %></td>
           <td><%#= render 'public/favorites/favorite_btn', post: @post %></td>

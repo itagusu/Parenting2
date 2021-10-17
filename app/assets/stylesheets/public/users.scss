@@ -23,19 +23,24 @@
     #btn-border {
     position: relative;
     border-radius: 0;
+      input{
+        background: transparent;
+        border: none;
+
+      }
+
+
     }
 
     #btn-border:before,
     #btn-border:after {
       position: absolute;
-
       width: 100%;
       height: 2px;
 
       content: '';
       -webkit-transition: all .3s;
       transition: all .3s;
-
       background: #000;
     }
 
