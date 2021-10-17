@@ -18,6 +18,11 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+*{
+  box-sizing: border-box;
+}
+
 body {
   //background-image: image-url("family.jpg");
   //background-color: #FFCCFF;
@@ -64,12 +69,12 @@ body {
 
 .side_in{
   display: flex; /* Flexboxの利用 */
-  justify-content: left; /* 子要素の横並び・左寄せ */
+  // justify-content: left; /* 子要素の横並び・左寄せ */
   header {
     //background-image: image-url("family.jpg");
     background-color: #FF9933;
     width: 260px;
-    height: 105vh;
+    height: 100vh;
     .header_logo{
       img{
         border-radius: 30%;
