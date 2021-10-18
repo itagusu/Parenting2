@@ -11,7 +11,6 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
-      byebug
       render :new
     end
   end
@@ -19,6 +18,7 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).per(5).order(created_at: :desc)
     @genres = Genre.all
+    @ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def show

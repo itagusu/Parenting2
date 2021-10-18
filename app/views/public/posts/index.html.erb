@@ -1,9 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%= render 'public/searches/genre_list', genres: @genres %>
+      <div><br>
+        <h5>週間ランキングTOP３</h5>
+        <tbody>
+          <% @ranks.each do |post| %>
+            <tr>
+              <td>
+                <div class="user_profile_image">
+                <%= link_to post_path(post) do %>
+                  <%= attachment_image_tag(post.user, :profile_image, size: "60x60", fallback: "default_profile.jpg") %>
+                <% end %><br>
+                </div>
+                <%= link_to post.user.last_name + post.user.first_name, post_path(post), class: 'text-decoration-none text-secondary' %>
+              </td>
+              <td><%= post.body %></td>
+            </tr><hr>
+          <% end %>
+        </tbody>
+      </div>
+
     </div>
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-7 offset-md-1">
       <%= render 'public/posts/index', posts: @posts %>
     </div>
   </div>
