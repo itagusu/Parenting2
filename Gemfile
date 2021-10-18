@@ -52,6 +52,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # RSpecテスト
+  gem 'rspec-rails'
 end
 
 group :test do

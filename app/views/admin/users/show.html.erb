@@ -1,15 +1,18 @@
-  <%= @user.id %>
-  <div class="user_profile_image">
-    <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %>
-  </div>
-  <%= @user.last_name %>
-  <%= @user.first_name %>
-  <%= @user.email %>
-  <%= @user.introduction %>
-  <% if @user.is_deleted == true %>
-    <p>退会</p>
-  <% elsif @user.is_deleted == false %>
-    <p>有効</p>
-  <% end %>
+  <div class="admin_user">
 
-  <%= link_to "編集", edit_admin_user_path(@user) %>
+    ユーザーID:<%= @user.id %>
+    <div class="user_profile_image">
+      <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %>
+    </div>
+    名前:<%= @user.last_name %><%= @user.first_name %><br><br>
+    メールアドレス:<%= @user.email %><br><br>
+    自己紹介文:<%= @user.introduction %><br><br>
+    会員ステータス:
+    <% if @user.is_deleted == true %>
+      退会
+    <% elsif @user.is_deleted == false %>
+      有効
+    <% end %><br><br>
+
+    <%= link_to "編集", edit_admin_user_path(@user), class: 'btn btn-sm btn-warning' %>
+  </div>
