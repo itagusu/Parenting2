@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :set_genres, only:[:new, :create, :show, :index, :destroy]
+  before_action :set_genres, only: %i[new create show index destroy]
   def new
     @post = Post.new
   end

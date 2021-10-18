@@ -1,0 +1,8 @@
+<div class="error_message">
+  <% if hoge.errors.any? %>
+    <%= hoge.errors.count %>件のエラーが発生しました<br>
+    <% hoge.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  <% end %>
+</div>

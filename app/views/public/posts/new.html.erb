@@ -1,4 +1,5 @@
 <div class="post_new">
+  <%= render 'layouts/error_message', hoge: @post %>
   <%=form_with model:@post, local:true do |f| %>
     <h4>ジャンル機能</h4>
     <p><%= f.collection_select :genre_id, @genres, :id, :name, selected: 1 %></p>

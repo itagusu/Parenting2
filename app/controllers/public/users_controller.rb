@@ -14,10 +14,13 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    user = current_user
-    user.update(user_params)
-    # flash[:notice] = "You have updated user successfully."
-    redirect_to my_page_path(current_user)
+    @user = current_user
+    if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully."
+      redirect_to my_page_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def confirm; end

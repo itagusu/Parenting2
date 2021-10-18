@@ -18,8 +18,8 @@ class User < ApplicationRecord
   # 自分がフォローされている人
   has_many :followings, through: :relationships, source: :followed
 
-  has_many :active_notifications, class_name: "Notification", foreign_key: "send_id", dependent: :destroy
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "receive_id", dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'send_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'receive_id', dependent: :destroy
 
   def follow(user_id)
     # relationships.create(followed_id: user_id)
@@ -40,8 +40,7 @@ class User < ApplicationRecord
   end
 
   def create_notification_follow!(current_user)
-
-    temp = Notification.where(["send_id = ? and receive_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where(['send_id = ? and receive_id = ? and action = ? ', current_user.id, id, 'follow'])
 
     if temp.blank?
       notification = current_user.active_notifications.new(
@@ -51,4 +50,9 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  validates :last_name, presence: true, length: {maximum: 20}
+  validates :first_name, presence: true, length: {maximum: 20}
+  validates :introduction, length: {maximum: 100}
+  validates :email, presence: true, uniqueness: true
 end

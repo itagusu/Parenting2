@@ -69,11 +69,18 @@ gem 'bootstrap', '~> 4.5'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
+# ページング機能
 gem 'kaminari', '~> 1.2.1'
+# 画像投稿
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+# 画像サイズ変更
 gem 'refile-mini_magick'
+# カレンダー機能（未実施）
 gem 'simple_calendar', '~> 2.0'
+# 日本語の言語設定
+gem 'rails-i18n'
 
+# 環境変数
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

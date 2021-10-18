@@ -1,4 +1,6 @@
 <div class="user_edit">
+  <%= render 'layouts/error_message', hoge: @user %>
+
   <%= form_with model:@user, local:true do |f| %>
     <div class="field">
       <p>

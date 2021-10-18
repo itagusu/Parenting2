@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        last_name: 姓
+        first_name: 名前
+        introduction: 自己紹介文
+
+      post:
+        body: 本文
