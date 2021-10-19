@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :set_genres, only: %i[new create show index destroy]
+  
   def new
     @post = Post.new
   end
@@ -18,6 +19,7 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
     @genres = Genre.all
+    # いいねの週間ランキング実装
     @ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 

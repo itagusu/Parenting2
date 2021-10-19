@@ -77,43 +77,9 @@
 
 
 
-  // .btn-border {
-  //   border-radius: 0;
-  // }
-
-  // .btn-border:before,
-  // .btn-border:after {
-  //   position: absolute;
-
-  //   width: 100%;
-  //   height: 10px;
-
-  //   content: '';
-  //   -webkit-transition: all .3s;
-  //   transition: all .3s;
-
-  //   background: #000;
-  // }
-
-  // .btn-border:before {
-  //   top: 0;
-  //   left: 0;
-  // }
-
-  // .btn-border:after {
-  //   right: 0;
-  //   bottom: 0;
-  // }
-
-  // .btn-border:hover:before,
-  // .btn-border:hover:after {
-  //   width: 0;
-  // }
-
-
-
 .user_profile_image{
  img{
+   /* ユーザープロフィール画像は丸に変更 */
    border: solid #FF9933;
    border-radius: 50%
  }

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attachment :profile_image
+  attachment :profile_image #ユーザーの画像投稿
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -18,7 +18,9 @@ class User < ApplicationRecord
   # 自分がフォローされている人
   has_many :followings, through: :relationships, source: :followed
 
+  #通知を送るアクションを押すとき　ex)フォローする人
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'send_id', dependent: :destroy
+  #通知を受け取る側
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'receive_id', dependent: :destroy
 
   def follow(user_id)
@@ -50,9 +52,9 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
-  validates :last_name, presence: true, length: {maximum: 20}
-  validates :first_name, presence: true, length: {maximum: 20}
-  validates :introduction, length: {maximum: 100}
-  validates :email, presence: true, uniqueness: true
+  #バリデーション設定
+  validates :last_name, presence: true, length: {maximum: 20} #姓　空白投稿出来ない　最大２０文字
+  validates :first_name, presence: true, length: {maximum: 20} #名　空白投稿出来ない　最大２０文字
+  validates :introduction, length: {maximum: 100} #自己紹介文　最大１００文字
+  validates :email, presence: true, uniqueness: true #メールアドレス　空白投稿出来ない　同じアドレスは２つ以上存在させない
 end

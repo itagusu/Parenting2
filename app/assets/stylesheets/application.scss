@@ -71,7 +71,7 @@ body {
   display: flex; /* Flexboxの利用 */
   // justify-content: left; /* 子要素の横並び・左寄せ */
   header {
-    //background-image: image-url("family.jpg");
+    /* サイドバーの固定 */
     position: fixed;
     top: 0;
     left: 0;
@@ -84,6 +84,7 @@ body {
         margin: 40px;
       }
     }
+    /* 検索窓と検索ボタン横並びに固定 */
     .search{
       form{
       display: flex;
