@@ -6,7 +6,8 @@ class Public::SessionsController < Devise::SessionsController
   def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
     if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
-      redirect_to new_user_session_pathend
+      flash[:notice] = 'ログインできません！'
+      redirect_to new_user_session_path
     end
   end
 
@@ -28,6 +29,7 @@ class Public::SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(_resource)
+    flash[:notice] = 'ログイン成功です！'
     my_page_path(current_user)
   end
 

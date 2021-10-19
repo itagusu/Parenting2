@@ -1,2 +1,5 @@
-本当に退会しますか
-<%= link_to "退会する", users_withdraw_path(@user), method: :patch %>
+<h4>本当に退会しますか?</h4>
+<h6>退会後は閲覧、投稿等全てのサービスがご利用いただけなくなります。</h6>
+<div class="text-center">
+  <%= link_to "退会する", users_withdraw_path(@user), method: :patch,class: 'btn btn-outline-danger' %>
+</div>

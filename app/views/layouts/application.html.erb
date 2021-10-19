@@ -4,8 +4,9 @@
     <title>Parenting</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,16 +22,19 @@
             <% end %>
           </div>
 
-          <div class="search">
-            <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <div class="search_form">
-              <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
-              </div>
-              <div class="search_btn">
-              <%= f.submit "検索", class: "btn btn-outline-secondary fas fa-user-edit" %>
-              </div>
-            <% end %>
-          </div>
+          <% if user_signed_in? %>
+            <div class="search">
+              <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <div class="search_form">
+                <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
+                </div>
+                <div class="search_btn">
+                <%= f.submit "検索", class: "btn btn-outline-secondary fas fa-user-edit" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
           <nav class="nav">
             <ul>
             <% if user_signed_in? %>

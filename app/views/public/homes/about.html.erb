@@ -1,3 +1,17 @@
-Parentingでは、出産までや出産後など子育てに関する情報共有や<br>
-子育てに対する不安や疑問を投稿することのできるサイトです<br>
-また、成長の早い赤ちゃんの記録として、子育てブログの更新も出来ます<br>
+<div id="box">
+  <div class="main-visual-content">
+      <p class="main-visual-text">
+        Parentingでは、出産までや出産後など子育てに関する情報共有や<br>
+    子育てに対する不安や疑問を投稿することのできるSNSサイトです<br>
+    また、成長の早い赤ちゃんの記録としても投稿出来ます！<br><br>
+    是非投稿してみて下さい！！<br>
+    <% if user_signed_in? %>
+
+    <% else %>
+      サイトを利用するには登録が必要です！！<br>
+      サイト登録は<%= link_to "こちら", new_user_registration_path %>からどうぞ！！
+    <% end %>
+      </p>
+  </div>
+</div>
+

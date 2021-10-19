@@ -24,20 +24,20 @@
 }
 
 body {
-  //background-image: image-url("family.jpg");
   //background-color: #FFCCFF;
 
 }
 
 /* 高さを指定することにより画像が表示される */
 #box{
+  background-image: image-url("family.jpg");
   height: 880px;
   position: relative;
   z-index: 1;
   font-family: Chalkduster, "Comic Sans MS", Courier, "Segoe Print", sans-serif;
   .main-visual-content {
     width: 40%;
-    height: 240px;
+    height: 300px;
     background-color: rgba(0, 0, 0, 0.4); /* 背景色を半透明の黒にする */
     text-align: center;
     margin: 100px 0 0 100px; /*上 右 下 左の順 */
@@ -96,7 +96,7 @@ body {
 .yield{
   width: 100%;
   height: 100%;
-  margin: 30px 20px 20px 305px;
+  margin: 30px 20px 20px 295px;
 }
 
 .nav{
