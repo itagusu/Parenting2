@@ -11,7 +11,8 @@ class Post < ApplicationRecord
   end
 
   def self.looks(word)
-    word == 'partial_match' #キーワード一部一致
+    # キーワード一部一致
+    word == 'partial_match'
     @post = Post.where('body LIKE?', "%#{word}%")
     #@user = User.where('body LIKE?', "%#{word}%")
   end
