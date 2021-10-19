@@ -13,7 +13,7 @@
 
       <% if notification.action == 'follow' %>
         あなたをフォローしました。
-      <% elsif notification.action == 'Favorite' %>
+      <% elsif notification.action == 'favorite' %>
         <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にいいねしました。
       <% elsif notification.action == 'post_comment' %>
         <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にコメントしました。

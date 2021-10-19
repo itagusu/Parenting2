@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   def self.looks(word)
     word == 'partial_match'
     @post = Post.where('body LIKE?', "%#{word}%")
+    #@user = User.where('body LIKE?', "%#{word}%")
   end
 
   def create_notification_favorite?(current_user)
