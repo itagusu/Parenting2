@@ -41,7 +41,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_in_path_for(_resource)
-    flash[:notice] = '登録完了しました!ありがとうございます！'
+    flash[:notice] = '登録ありがとうございます！'
     my_page_path(current_user)
   end
 
