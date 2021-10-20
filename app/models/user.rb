@@ -28,7 +28,6 @@ class User < ApplicationRecord
     relationship.
     # createメソッドはnewとsaveを合わせた記述
     # relationships.create(followed_id: user_id)でも同じ挙動をする
-
   end
 
   # フォロー解除の際にdestroyメソッドで削除
@@ -64,4 +63,6 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   # メールアドレス　空白投稿出来ない　同じアドレスは２つ以上存在させない
   validates :email, presence: true, uniqueness: true
+
+  end
 end
