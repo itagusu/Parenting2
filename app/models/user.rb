@@ -54,11 +54,11 @@ class User < ApplicationRecord
   end
   # バリデーション設定
   # 姓　空白投稿出来ない　最大２０文字
-  validates :last_name, presence: true, length: {maximum: 20}
+  validates :last_name, presence: true, length: { maximum: 20 }
   # 名　空白投稿出来ない　最大２０文字
-  validates :first_name, presence: true, length: {maximum: 20}
+  validates :first_name, presence: true, length: { maximum: 20 }
   # 自己紹介文　最大１００文字
-  validates :introduction, length: {maximum: 100}
+  validates :introduction, length: { maximum: 100 }
   # メールアドレス　空白投稿出来ない　同じアドレスは２つ以上存在させない
   validates :email, presence: true, uniqueness: true
 end

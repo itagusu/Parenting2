@@ -40,7 +40,6 @@ Parentingでは、出産までや出産後など子育てに関する情報共�
 - PAKUTASO https://www.pakutaso.com/
 - designevo https://www.designevo.com/
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
 
 ## 作者
 板楠亮
