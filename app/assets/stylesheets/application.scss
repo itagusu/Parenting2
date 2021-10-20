@@ -25,6 +25,11 @@
 
 body {
   //background-color: #FFCCFF;
+  /* 画面サイズスマホ対応に設定中 */
+  @media screen and (max-width: 425px) {
+  header {
+    width: 100%;
+  }
 
 }
 
@@ -101,13 +106,13 @@ body {
 }
 
 .nav{
-  letter-spacing: 0.1em
+  letter-spacing: 0.1em /*文字の間隔 */
 }
 
 ul{
   list-style: none;
   li{
-    padding: 20px;
+    padding: 20px; /*行の間隔 */
 
   }
 }
@@ -121,4 +126,5 @@ h1{
 .error_message{
   color: red;
   margin: 30px;
+}
 }

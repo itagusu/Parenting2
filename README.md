@@ -21,7 +21,7 @@ Parentingでは、出産までや出産後など子育てに関する情報共�
 ブログの更新ができる。
 
 ## 設計書
-- ER図は[こちら](https://drive.google.com/file/d/1yPFvOREJkWB19I532umlGsSrqXJAMrwN/view?usp=sharing)
+- ER図は[こちら](https://drive.google.com/file/d/1LMO8Fe4AkMwLO0mD3NLqUlSRo7XdD-af/view?usp=sharing)
 - テーブル定義書は[こちら](https://docs.google.com/spreadsheets/d/1wpljxCMyAeHJo2zSh4eoAqXHH2m8NeTa0nmHb3drtIE/edit?usp=sharing)
 - 詳細設計書は[こちら](https://docs.google.com/spreadsheets/d/1yoao8gIu_X06_XOkuE4ee2l08rFIVjbdP80SBjD_688/edit?usp=sharing)
 
