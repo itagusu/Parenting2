@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
@@ -36,6 +36,11 @@ class Public::UsersController < ApplicationController
   def my_page
     @user = current_user
     @posts = @user.posts.page(params[:page]).per(10).order(created_at: :desc)
+  end
+
+  def favorite
+    user = User.find(params[:id])
+    @users = user.favorite
   end
 
   private

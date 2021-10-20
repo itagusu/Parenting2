@@ -39,6 +39,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+
   def active_for_authentication?
     is_deleted == false
   end

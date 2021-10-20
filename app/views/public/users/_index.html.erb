@@ -1,0 +1,18 @@
+<% users. each do |user| %>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="user_profile_image">
+      <%= attachment_image_tag user, :profile_image, size: "40x40", fallback: "default_profile.jpg" %>
+    </div>
+    <%= link_to user.last_name + user.first_name, user_path(user.id) %>
+    </div>
+    <div class="col-md-10">
+      <%= user.introduction %>
+    </div>
+  </div>
+  <hr>
+<% end %>
+
+  <ul class="pagination justify-content-center">
+    <%#= paginate users %>
+  </ul>

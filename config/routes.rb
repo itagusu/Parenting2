@@ -23,8 +23,9 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resources :posts, only: %i[new create index show destroy] do
+    resources :posts, only: %i[new create index show destroy ] do
       resource :favorites, only: %i[create destroy]
+      get 'favorites/index' => 'users/index'
       resources :post_comments, only: %i[create destroy]
     end
     resources :notifications, only: :index
