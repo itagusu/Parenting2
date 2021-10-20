@@ -24,15 +24,18 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'receive_id', dependent: :destroy
 
   def follow(user_id)
-    # relationships.create(followed_id: user_id)
     relationship = relationships.new(followed_id: user_id)
-    relationship.save
+    relationship.
+    # createメソッドはnewとsaveを合わせた記述
+    # relationships.create(followed_id: user_id)でも同じ挙動をする
+
   end
 
+  # フォロー解除の際にdestroyメソッドで削除
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-
+  # include?は対象の配列に引数のものが含まれていればtrue、含まれていなければfalse
   def following?(user)
     followings.include?(user)
   end

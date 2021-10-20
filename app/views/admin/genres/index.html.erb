@@ -1,3 +1,4 @@
+ <!--新規投稿入力フォームを一覧画面に配置-->
 <%= form_with model: [:admin, @genre], method: :post, local:true do |f| %>
   <%= f.text_field :name,placeholder: "ジャンル名" %>
   <%= f.submit "新規登録", class: 'btn btn-sm btn-success' %>
