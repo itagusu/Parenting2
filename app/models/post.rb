@@ -48,5 +48,5 @@ class Post < ApplicationRecord
     notification.save if notification.valid?
   end
 
-  validates :body, presence: true, length: { maximum: 150 }
+  validates :body, presence: true, length: { maximum: 200 }
 end
