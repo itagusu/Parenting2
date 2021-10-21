@@ -53,10 +53,10 @@ Style/FrozenStringLiteralComment:
 # Offense count: 3
 # Configuration parameters: MinBodyLength.
 # Style/GuardClause:
-#   Exclude:
-#     - 'app/controllers/public/sessions_controller.rb'
-#     - 'app/models/post.rb'
-#     - 'app/models/user.rb'
+  Exclude:
+    - 'app/controllers/public/sessions_controller.rb'
+    - 'app/models/post.rb'
+    - 'app/models/user.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

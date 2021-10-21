@@ -1,5 +1,4 @@
 class Public::FavoritesController < ApplicationController
-
   def index
     # post_idに紐づくfavoritesを取得　(post_id(カラム): params[:post_id](post_idを探して取得))
     favorites = Favorite.where(post_id: params[:post_id])

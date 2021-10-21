@@ -15,7 +15,6 @@ class Post < ApplicationRecord
     # キーワード一部一致
     word == 'partial_match'
     @post = Post.where('body LIKE?', "%#{word}%")
-    #@user = User.where('body LIKE?', "%#{word}%")
   end
 
   def create_notification_favorite?(current_user)
@@ -47,6 +46,6 @@ class Post < ApplicationRecord
     notification.checked = true if notification.send_id == notification.receive_id
     notification.save if notification.valid?
   end
-
+  # 本文空投稿出来ない　２００文字以内
   validates :body, presence: true, length: { maximum: 200 }
 end
