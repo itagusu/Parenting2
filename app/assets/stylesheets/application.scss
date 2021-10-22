@@ -24,7 +24,7 @@
 }
 
 body {
-  //background-color: #FFCCFF;
+  //background-color: #FFFFCC;
   /* 画面サイズスマホ対応に設定中 */
   @media screen and (max-width: 425px) {
   header {
@@ -80,7 +80,9 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FF9933;
+    background-image: image-url("back.jpg");
+    background-size: 120% 100%;
+    //background-color: #FF9933;
     width: 255px;
     height: 100vh;
     .header_logo{
@@ -102,7 +104,7 @@ body {
 .yield{
   width: 100%;
   height: 100%;
-  margin: 30px 20px 20px 295px;
+  margin: 15px 0 10px 285px;
 }
 
 .nav{
@@ -113,7 +115,6 @@ ul{
   list-style: none;
   li{
     padding: 20px; /*行の間隔 */
-
   }
 }
 
@@ -122,6 +123,12 @@ ul{
 h1{
   font-family: 'Barlow Condensed', sans-serif;
 }
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+}
+
 
 .error_message{
   color: red;

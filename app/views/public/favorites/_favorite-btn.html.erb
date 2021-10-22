@@ -4,10 +4,10 @@
   <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
     <i class="fas fa-heart" style="color: deeppink;"></i>
   <% end %>
-  <%= link_to post.favorites.count, post_favorites_index_path(post) %>
+  <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
 <% else %>
   <%= link_to post_favorites_path(post),method: :post, remote: true do %>
     <i class="far fa-heart"></i>
   <% end %>
-  <%= link_to post.favorites.count, post_favorites_index_path(post) %>
+  <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
 <% end %>
