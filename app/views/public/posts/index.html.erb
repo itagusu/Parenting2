@@ -5,7 +5,8 @@
       <div><br>
         <h5>いいね週間ランキングTOP３</h5>
         <tbody>
-          <% @ranks.each do |post| %>
+          <% @ranks.each.with_index(1) do |post, i| %>
+          <%= i %>位
             <tr>
               <td>
                 <div class="user_profile_image">
