@@ -1,13 +1,13 @@
 <div class="post_new">
   <%= render 'layouts/error_message', hoge: @post %>
   <%=form_with model:@post, local:true do |f| %>
-    <h4>ジャンル機能</h4>
+    <h4>新規投稿入力画面</h4><br>
     <p><%= f.collection_select :genre_id, @genres, :id, :name, selected: 1 %></p>
       <%= f.attachment_field :image %><br>
     <h4>本文</h4>
     <div class="post_form">
       <%= f.text_area :body, rows:7, class: "form-control" %><br>
     </div>
-    <%= f.submit '投稿' %>
+    <%= f.submit '投稿', class: 'btn btn-outline-success' %>
   <% end %>
 </div>

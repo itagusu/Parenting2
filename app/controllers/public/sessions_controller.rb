@@ -5,8 +5,9 @@ class Public::SessionsController < Devise::SessionsController
 
   def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
-    if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
-      redirect_to new_user_session_path
+    if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == true)
+      flash[:notice] = '退会しているユーザーです'
+      render new_user_session_path
     end
   end
 

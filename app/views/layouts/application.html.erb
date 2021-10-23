@@ -31,7 +31,7 @@
                 <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
                 </div>
                 <div class="search_btn">
-                <%= f.submit "検索", class: "btn btn-outline-secondary fas fa-user-edit" %>
+                <%= f.submit "検索", class: 'btn btn-outline-secondary fas fa-search-plus' %>
                 </div>
               <% end %>
             </div>
@@ -40,21 +40,21 @@
           <nav class="nav">
             <ul>
             <% if user_signed_in? %>
-              <li><%= link_to "通知", notifications_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "マイページ", my_page_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "ユーザー一覧", users_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "新規投稿", new_post_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "投稿一覧", posts_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, class: 'text-decoration-none text-light', method: :delete %></li>
+              <li><%= link_to "通知", notifications_path, class: 'text-decoration-none text-light fas fa-bell' %></li>
+              <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light fas fa-exclamation-circle' %></li>
+              <li><%= link_to "マイページ", my_page_path, class: 'text-decoration-none text-light fas fa-user' %></li>
+              <li><%= link_to "ユーザー一覧", users_path, class: 'text-decoration-none text-light fas fa-users' %></li>
+              <li><%= link_to "新規投稿", new_post_path, class: 'text-decoration-none text-light fas fa-pen' %></li>
+              <li><%= link_to "投稿一覧", posts_path, class: 'text-decoration-none text-light fas fa-list' %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, class: 'text-decoration-none text-light fas fa-sign-out-alt', method: :delete %></li>
             <% elsif admin_signed_in? %>
               <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'text-decoration-none text-dark', method: :delete %></li>
               <li><%= link_to "ユーザー一覧", admin_users_path, class: 'text-decoration-none text-dark' %></li>
               <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'text-decoration-none text-dark' %></li>
             <% else %>
-              <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "新規登録", new_user_registration_path, class: 'text-decoration-none text-light' %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class: 'text-decoration-none text-light' %></li>
+              <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light fas fa-exclamation-circle' %></li>
+              <li><%= link_to "新規登録", new_user_registration_path, class: 'text-decoration-none text-light fas fa-user-plus' %></li>
+              <li><%= link_to "ログイン", new_user_session_path, class: 'text-decoration-none text-light fas fa-sign-in-alt' %></li>
             <% end %>
             </ul>
           </nav>
