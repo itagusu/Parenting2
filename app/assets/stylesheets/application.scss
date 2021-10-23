@@ -25,7 +25,8 @@
 
 body {
   //background-color: #FFFFCC;
-
+  padding: 0;
+  margin: 0;
 }
 
 /* 高さを指定することにより画像が表示される */
@@ -132,8 +133,21 @@ p, ol, ul, td {
   margin: 30px;
 }
 
+  .display-block {
+    display: block!important;
+  }
+  .display-none {
+    display: none!important;
+  }
+
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
+  .display-block {
+    display: none!important;
+  }
+  .display-none {
+    display: block!important;
+  }
   .side_in{
     display: block; /* Flexboxの利用 */
     // justify-content: left; /* 子要素の横並び・左寄せ */
@@ -172,8 +186,6 @@ p, ol, ul, td {
   }
 
   nav{
-    display: flex;
-    flex-wrap: wrap;
     position: fixed;
     bottom: 0;
     width: 100%;
