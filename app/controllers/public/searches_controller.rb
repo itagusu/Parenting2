@@ -1,6 +1,6 @@
 class Public::SearchesController < ApplicationController
   def search
-    @posts = Post.looks(params[:word]).page(params[:page]).per(7).order(created_at: :desc)
+    @posts = Post.looks(params[:word]).page(params[:page]).per(7)
     @genres = Genre.all
   end
 
