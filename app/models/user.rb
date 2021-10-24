@@ -64,6 +64,4 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   # メールアドレス　空白投稿出来ない　同じアドレスは２つ以上存在させない
   validates :email, presence: true, uniqueness: true
-  
 end
-

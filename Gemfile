@@ -43,9 +43,9 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   # RSpecテスト
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -57,7 +57,6 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
 end
 
 group :test do
