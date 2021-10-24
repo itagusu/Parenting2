@@ -5,7 +5,7 @@
         <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %>
       </div>
       <div>
-        <%= link_to user.last_name + user.first_name, user_path(user.id) %>
+        <%= link_to user.last_name + user.first_name, user_path(user.id), class: 'text-decoration-none text-secondary' %>
       </div>
     </div>
     <div class="col-md-10">
