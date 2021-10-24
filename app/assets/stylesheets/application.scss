@@ -186,16 +186,12 @@ p, ol, ul, td {
   }
 
   nav{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: red;
 
     letter-spacing: 0em; /*文字の間隔 */
     ul{
       //list-style: none;
       li{
-        padding: 0; /*行の間隔 */
+        //padding: 20px; /*行の間隔 */
       }
     }
   }
