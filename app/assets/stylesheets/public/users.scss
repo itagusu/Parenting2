@@ -17,19 +17,18 @@
     padding: 40px;
     .form {
       text-align: left;
-      display: inline-block; /* ブロック要素横並び */
+      /* ブロック要素横並び */
+      display: inline-block;
       padding: 20px 20px;
     }
+
     #btn-border {
     position: relative;
     border-radius: 0;
       input{
         background: transparent;
         border: none;
-
       }
-
-
     }
 
     #btn-border:before,
