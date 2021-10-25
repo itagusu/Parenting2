@@ -4,5 +4,7 @@ FactoryBot.define do
     sequence(:first_name) { |n| "TEST_FIRST_NAME#{n}" }
     sequence(:email) { |n| "TEST#{n}@example.com" }
     introduction { Faker::Lorem.characters(number: 100) }
+    password { 'password' }
+    password_confirmation { 'password' }
   end
 end

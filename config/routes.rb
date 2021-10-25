@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :posts, only: %i[new create index show destroy] do
       resource :favorites, only: %i[create destroy]
       get 'favorites/index' => 'users/index'
-      resources :post_comments, only: %i[create]
+      resources :post_comments, only: %i[create destroy]
     end
     resources :notifications, only: :index
   end

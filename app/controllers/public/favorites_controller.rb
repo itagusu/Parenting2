@@ -10,8 +10,8 @@ class Public::FavoritesController < ApplicationController
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.new(post_id: @post.id)
     favorite.save
-    # redirect_to post_path(post)
     # 非同期通信のため app/view/public/favorites/create.js.
+    # redirect_to post_path(post)
     @post.create_notification_favorite?(current_user)
   end
 
@@ -19,7 +19,7 @@ class Public::FavoritesController < ApplicationController
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.find_by(post_id: @post.id)
     favorite.destroy
-    # redirect_to post_path(post)
     # 非同期通信のため app/view/public/favorites/destroy.js.erb
+    # redirect_to post_path(post)
   end
 end

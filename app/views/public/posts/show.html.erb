@@ -22,22 +22,15 @@
         <% end %>
     </div>
     <div class="col-md-7">
-      <% @post.post_comments.each do |post_comment| %>
-        <div class="user_profile_image">
-          <%= attachment_image_tag post_comment.user, :profile_image, size: "80x80", fallback: "default_profile.jpg" %>
-        </div>
-        <%= link_to post_comment.user.last_name + post_comment.user.first_name, user_path(post_comment.user) %>
-        <%= post_comment.created_at.strftime('%Y年%-m月%-d日') %>
-        <%= post_comment.comment %><br><br>
-      <% end %>
-      <br>
+      <div id="comments_area">
+        <%= render 'public/post_comments/comment', post: @post %>
+      </div>
 
-      <%= @post.post_comments.count %>件のコメント<br><br>
+      <div id="comments_count">
+        <%= @post.post_comments.count %>件のコメント<br><br>
+      </div>
 
-      <%= form_with(model:[@post, @post_comment],local: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %><br>
-        <%= f.submit "送信", class: "btn btn-sm btn-outline-success" %>
-      <% end %>
+      <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
     </div>
   </div>
 </div>
