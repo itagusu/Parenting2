@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   def self.looks(word)
     # キーワード一部一致
     # word == 'partial_match'
+    # ユーザー名を検索した際もそのユーザーの投稿も表示させる
     user_ids1 = User.where('last_name LIKE?', "%#{word}%").or(User.where('first_name LIKE?', "%#{word}%")).ids
     Post.where('body LIKE?', "%#{word}%").or(Post.where(user_id: user_ids1)).order(created_at: :desc)
   end
