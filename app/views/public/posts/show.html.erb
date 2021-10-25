@@ -17,8 +17,10 @@
           </div>
         </div>
 
+        <br>
         <% if @post.user == current_user %>
-          <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-outline-danger" %>
+          <%= link_to "", post_path(@post), class: 'text-danger fas fa-trash-alt', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <%= link_to "投稿削除", post_path(@post), class: 'text-secondary', method: :delete, data: { confirm: '本当に削除しますか？' } %>
         <% end %>
     </div>
     <div class="col-md-7">
