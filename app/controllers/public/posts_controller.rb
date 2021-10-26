@@ -3,7 +3,6 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # binding.pry
   end
 
   def create
