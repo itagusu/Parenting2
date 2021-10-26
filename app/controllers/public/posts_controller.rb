@@ -3,11 +3,13 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    # binding.pry
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    # binding.pry
     if @post.save
       redirect_to post_path(@post)
     else

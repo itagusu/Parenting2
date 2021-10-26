@@ -29,8 +29,8 @@
       </div>
 
       <div id="comments_count">
-        <%= @post.post_comments.count %>件のコメント<br><br>
-      </div>
+        <%= @post.post_comments.count %>件のコメント
+      </div><br><br>
 
       <%= render 'public/post_comments/form', post: @post, post_comment: @post_comment %>
     </div>
