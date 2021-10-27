@@ -1,40 +1,44 @@
 <div class="post_list">
   <h5>投稿一覧</h5>
-  <% posts.each do |post| %>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="user_profile_image">
-          <%= link_to post_path(post) do %>
-            <%= attachment_image_tag(post.user, :profile_image, size: "50x50", fallback: "default_profile.jpg") %>
-          <% end %>
-        </div>
-        <div>
-          <p><%= link_to post.user.last_name + post.user.first_name, post_path(post), class: 'text-decoration-none text-secondary' %></p>
-        </div>
-      </div>
-      <div class="col-md-7">
-        <p><%= post.body %></p>
-      </div>
-      <div class="col-md-3">
-        <div id="favorite_area_<%= post.id %>">
-          <div class="favorite-btn">
-            <!--ログインしているユーザーがいることを確認-->
-            <% if post.favorited_by?(current_user) %>
-              <!--remote: trueは非同期通信のため-->
-              <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-                <i class="fas fa-heart" style="color: deeppink;"></i>
-              <% end %>
-              <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
-            <% else %>
-              <%= link_to post_favorites_path(post),method: :post, remote: true do %>
-                <i class="far fa-heart"></i>
-              <% end %>
-              <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
+  <% if @posts.exists? %>
+    <% posts.each do |post| %>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="user_profile_image">
+            <%= link_to post_path(post) do %>
+              <%= attachment_image_tag post.user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %>
             <% end %>
           </div>
+          <div>
+            <p><%= link_to post.user.last_name + post.user.first_name, post_path(post), class: 'text-decoration-none text-secondary' %></p>
+          </div>
         </div>
-      </div>
-    </div><hr>
+        <div class="col-md-7">
+          <p><%= post.body %></p>
+        </div>
+        <div class="col-md-3">
+          <div id="favorite_area_<%= post.id %>">
+            <div class="favorite-btn">
+              <!--ログインしているユーザーがいることを確認-->
+              <% if post.favorited_by?(current_user) %>
+                <!--remote: trueは非同期通信のため-->
+                <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+                  <i class="fas fa-heart" style="color: deeppink;"></i>
+                <% end %>
+                <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
+              <% else %>
+                <%= link_to post_favorites_path(post),method: :post, remote: true do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+                <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div><hr>
+    <% end %>
+  <% else %>
+    <p>投稿はありません</p>
   <% end %>
   <ul class="pagination justify-content-center">
     <%= paginate posts %>

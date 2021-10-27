@@ -1,8 +1,13 @@
 <div class="user_profile">
   <div class="user_profile_image">
-    <p><%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %></p>
+    <p>
+      <%= link_to user_path(user) do %>
+        <%= attachment_image_tag user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %>
+      <% end %>
+    </p>
   </div>
     <p>
+      <!--ログインユーザーには表示されないようにする-->
       <% if current_user != user %>
         <% if current_user.following?(user) %>
           <%= link_to "フォローを解除", user_relationships_path(user), method: :delete, class: "btn btn-warning" %>
@@ -18,6 +23,7 @@
       フォロワー:<%= link_to user.followers.count, user_followers_path(user) %>
     </p>
     <p>
+      <!--ログインユーザーのみ編集ボタン設置-->
       <% if user == current_user %>
         <%= link_to "", edit_user_path(user), class: "btn btn-outline-warning w-25 fas fa-user-edit" %>
       <% end %>

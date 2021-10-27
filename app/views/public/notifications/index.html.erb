@@ -8,7 +8,6 @@
         <%= link_to user_path(sender) do %>
           <%= attachment_image_tag(sender, :profile_image, size: "35x35", fallback: "default_profile.jpg") %>
         <% end %>
-      </div>
       <%= link_to sender.last_name + sender.first_name, user_path(sender), class: 'text-decoration-none text-info' %>さんが
 
       <% if notification.action == 'follow' %>
@@ -16,9 +15,10 @@
       <% elsif notification.action == 'favorite' %>
         <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にいいねしました。
       <% elsif notification.action == 'post_comment' %>
-        <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にコメントしました。
+        <%= link_to "あなたの投稿", post_path(notification.post), class: 'text-decoration-none text-info' %>にコメントしました。<br><%= '　　　' %>
         <%= PostComment.find_by(id: notification.post_comment_id)&.comment %>
       <% end %>
+      </div>
 　  </div>
   　<div class='small text-muted text-right'>
       <%=  time_ago_in_words(notification.created_at).upcase %>
