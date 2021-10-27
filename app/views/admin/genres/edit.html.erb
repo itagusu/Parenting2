@@ -1,0 +1,11 @@
+<div class="genre_edit">
+  <%= form_with model: [:admin, @genre], local:true do |f| %>
+    <div class="field">
+      <p>
+        <%= f.label :ジャンル %><br>
+        <%= f.text_field :name %>
+      </p><br>
+    </div>
+    <%= f.submit "保存",class: 'btn btn-success btn-sm' %>
+  <% end %>
+</div>
