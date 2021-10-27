@@ -5,6 +5,9 @@
     <div class="field">
       <p>
         <%= f.label :プロフィール画像 %><br>
+        <div class="user_profile_image">
+          <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %>
+        </div><br>
         <%= f.attachment_field :profile_image %>
       </p><br>
     </div>

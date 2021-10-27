@@ -1,2 +1,6 @@
 <h5>フォロワー</h5>
-<%= render 'public/relationships/follow_list', users: @users %>
+  <% if @users.exists? %>
+    <%= render 'public/relationships/follow_list', users: @users %>
+  <% else %>
+    フォロワーはいません
+  <% end %>
