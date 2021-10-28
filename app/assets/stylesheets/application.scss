@@ -35,7 +35,6 @@ body {
   height: 880px;
   position: relative;
   z-index: 1;
-  font-family: Chalkduster, "Comic Sans MS", Courier, "Segoe Print", sans-serif;
   .main-visual-content {
     width: 40%;
     height: 300px;
@@ -222,4 +221,12 @@ p, ol, ul, td {
       }
     }
   }
+  #box{
+    .main-visual-content {
+      width: 70%;
+      height: 300px;
+      margin: 50px;
+    }
+  }
 }
+
