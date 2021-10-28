@@ -7,7 +7,7 @@ class Public::PostCommentsController < ApplicationController
     comment.save
     @post.create_notification_post_comment!(current_user, comment.id)
     # 非同期通信のため app/view/public/post_comments/create.js
-    #redirect_to post_path(@post)
+    # redirect_to post_path(@post)
   end
 
   def destroy
@@ -15,7 +15,7 @@ class Public::PostCommentsController < ApplicationController
     comment = @post.post_comments.find(params[:id])
     comment.destroy
     # 非同期通信のため app/view/public/post_comments/destroy.js
-    #redirect_to post_path(@post)
+    # redirect_to post_path(@post)
   end
 
   private

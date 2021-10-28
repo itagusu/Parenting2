@@ -54,7 +54,7 @@ RSpec.describe 'User', type: :model do
 
         it 'ユーザ新規登録成功時' do
           visit new_user_registration_path
-          fill_in 'user[email]', with: 'a' + user.email # 確実にuser, other_userと違う文字列にするため
+          fill_in 'user[email]', with: 'a' + user.email
           fill_in 'user[password]', with: 'password'
           fill_in 'user[password_confirmation]', with: 'password'
           click_button 'Sign up'
