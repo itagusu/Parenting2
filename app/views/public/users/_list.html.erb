@@ -6,6 +6,9 @@
       <% end %>
     </p>
   </div>
+    <p><%= user.last_name %><%= user.first_name %></p>
+    <p><%= user.created_at.strftime('%Y年%-m月%-d日') %>からParentingを利用しています</p><br>
+    <p><%= user.introduction %></p>
     <p>
       <!--ログインユーザーには表示されないようにする-->
       <% if current_user != user %>
@@ -16,8 +19,6 @@
         <% end %>
       <% end %>
     </p>
-    <p><%= user.last_name %><%= user.first_name %></p>
-    <p><%= user.introduction %></p>
     <p>
       フォロー:<%= link_to user.followings.count, user_followings_path(user) %>
       フォロワー:<%= link_to user.followers.count, user_followers_path(user) %>
