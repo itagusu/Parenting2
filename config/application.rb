@@ -10,6 +10,7 @@ module Parenting
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.paths.add 'lib', eager_load: true
 
     # 日本語の言語設定
     config.i18n.default_locale = :ja
