@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: %i[edit update index show]
+    resources :users, only: %i[edit update index show destroy]
     resources :genres, only: %i[create edit update index destroy]
   end
 end

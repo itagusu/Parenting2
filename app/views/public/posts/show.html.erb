@@ -10,7 +10,7 @@
         <%= link_to @post.user.last_name + @post.user.first_name, user_path(@post.user) %><br>
         <p><%= @post.genre.name %></p><br>
       <%#= link_to image.avatar, "data-lightbox" => image.avatar do %>
-        <%= attachment_image_tag @post, :image, size: "400x300" %><br>
+        <%= attachment_image_tag @post, :image, size: "350x300" %><br>
       <%# end %>
       <div class="tag-box">
         <% @post.tags.each do |tag| %>
@@ -18,7 +18,6 @@
         <% end %><br>
       </div>
       <%= @post.body %><br>
-      <p class="sentiment-score">本文の感情分析スコア[<%= @post.score %>]</p>
       <%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
 
       <div id="favorite_area_<%= @post.id %>">

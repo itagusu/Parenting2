@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def edit
@@ -15,6 +16,12 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to admin_user_path(@user)
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to admin_user_path(post.user)
   end
 
   private
