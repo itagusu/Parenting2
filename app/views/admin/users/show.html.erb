@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-2">
             <p class="sentiment-score">[<%= post.score %>]</p>
-            <% if post.score <= -0.5 %>
+            <% if post.score.to_f <= -0.5 %>
               <p>ネガティブな言葉が含まれている可能性があります</p>
             <% end %>
           </div>
