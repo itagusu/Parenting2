@@ -1,15 +1,36 @@
-<div class="admin_user_list">
-  <% @users.each do |user| %>
-    <%= user.id %>
-    <div class="user_profile_image">
-      <%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th style="width: 5%">ID</th>
+            <th style="width: 15%">プロフィール画像</th>
+            <th style="width: 15%">名前</th>
+            <th style="width: 20%">email</th>
+            <th style="width: 10%">投稿数</th>
+            <th style="width: 10%">有効/退会</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+        <tbody class="admin_user_list">
+          <td><%= user.id %></td>
+          <td class="user_profile_image"><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %></td>
+          <td><%= link_to user.last_name + user.first_name, admin_user_path(user) %></td>
+          <td><%= user.email %></td>
+          <td><%= user.posts.count %></td>
+          <td>
+            <% if user.is_deleted == true %>
+              <p>退会</p>
+            <% elsif user.is_deleted == false %>
+              <p>有効</p>
+            <% end %>
+          </td>
+          <td><%= link_to "編集", edit_admin_user_path(user), class: 'btn btn-sm btn-warning' %></td>
+        </tbody>
+        <% end %>
+      </table>
     </div>
-    <%= link_to user.last_name + user.first_name, admin_user_path(user) %>
-    <%= user.email %>
-    <% if user.is_deleted == true %>
-      <p>退会</p>
-    <% elsif user.is_deleted == false %>
-      <p>有効</p>
-    <% end %>
-  <% end %>
+  </div>
 </div>
