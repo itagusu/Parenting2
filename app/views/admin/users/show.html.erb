@@ -19,6 +19,7 @@
 
   <div class="post_list">
     <h5>投稿一覧</h5>
+    <p>※[ ]内の数値は-0.5以下はネガティブな表現が含まれている可能性があります</p>
     <% if @posts.exists? %>
       <% @posts.each do |post| %>
         <div class="row">
@@ -38,7 +39,7 @@
           <div class="col-md-2">
             <p class="sentiment-score">[<%= post.score %>]</p>
             <% if post.score.to_f <= -0.5 %>
-              <p>ネガティブな言葉が含まれている可能性があります</p>
+              <p>ネガティブな表現が含まれている可能性があります</p>
             <% end %>
           </div>
           <div class="col-md-2">

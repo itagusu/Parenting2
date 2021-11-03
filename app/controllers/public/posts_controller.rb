@@ -15,9 +15,6 @@ class Public::PostsController < ApplicationController
       @post.tags.create(name: tag)
       end
       redirect_to post_path(@post)
-    # elsif @post.score < -0.5 then
-    #     flash[:notice] = ''
-    #   redirect_to post_path(@post)
     else
       render :new
     end
