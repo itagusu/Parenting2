@@ -50,4 +50,6 @@ class Post < ApplicationRecord
   end
   # 本文空投稿出来ない　２００文字以内
   validates :body, presence: true, length: { maximum: 200 }
+  # 画像投稿必須
+  validates :image, presence: true
 end
