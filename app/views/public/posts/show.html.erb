@@ -1,3 +1,6 @@
+<div class="flash_message">
+  <%= flash[:notice] %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -15,6 +18,7 @@
         <% end %><br>
       </div>
       <%= @post.body %><br>
+      <p class="sentiment-score">本文の感情分析スコア[<%= @post.score %>]</p>
       <%= @post.created_at.strftime('%Y年%-m月%-d日') %><br>
 
       <div id="favorite_area_<%= @post.id %>">

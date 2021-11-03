@@ -8,12 +8,16 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.score = Language.get_data(post_params[:body])
     if @post.save
     tags = Vision.get_image_data(@post.image)
       tags.each do |tag|
       @post.tags.create(name: tag)
       end
       redirect_to post_path(@post)
+    # elsif @post.score < -0.5 then
+    #     flash[:notice] = ''
+    #   redirect_to post_path(@post)
     else
       render :new
     end
