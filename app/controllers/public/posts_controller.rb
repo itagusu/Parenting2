@@ -1,6 +1,5 @@
 class Public::PostsController < ApplicationController
   before_action :set_genres, only: %i[new create show index destroy]
-  before_action :authenticate_user!,except: [:index]
 
   def new
     @post = Post.new
