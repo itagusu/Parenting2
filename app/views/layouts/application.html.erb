@@ -65,6 +65,7 @@
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'text-decoration-none text-dark' %></li>
                 <% else %>
                   <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light fas fa-exclamation-circle' %></li>
+                  <li><%= link_to "ユーザー一覧", users_path, class: 'text-decoration-none text-light fas fa-users' %></li>
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'text-decoration-none text-light fas fa-user-plus' %></li>
                   <li><%= link_to "ログイン", new_user_session_path, class: 'text-decoration-none text-light fas fa-sign-in-alt' %></li>
                 <% end %>
