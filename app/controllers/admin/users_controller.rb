@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!,except: [:index, :show, :edit, :update, :destroy]
   def index
     @users = User.all
   end

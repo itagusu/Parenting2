@@ -10,12 +10,14 @@
     <p><%= user.created_at.strftime('%Y年%-m月%-d日') %>からParentingを利用しています</p><br>
     <p><%= user.introduction %></p>
     <p>
-      <!--ログインユーザーには表示されないようにする-->
-      <% if current_user != user %>
-        <% if current_user.following?(user) %>
-          <%= link_to "フォローを解除", user_relationships_path(user), method: :delete, class: "btn btn-warning" %>
-        <% else %>
-          <%= link_to "フォローする", user_relationships_path(user), method: :post, class: "btn btn-success" %>
+      <% if user_signed_in? %>
+        <!--ログインユーザーには表示されないようにする-->
+        <% if current_user != user %>
+          <% if current_user.following?(user) %>
+            <%= link_to "フォローを解除", user_relationships_path(user), method: :delete, class: "btn btn-warning" %>
+          <% else %>
+            <%= link_to "フォローする", user_relationships_path(user), method: :post, class: "btn btn-success" %>
+          <% end %>
         <% end %>
       <% end %>
     </p>

@@ -1,4 +1,6 @@
-<%= form_with(model:[post, post_comment], remote: true) do |f| %>
-        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %><br>
-        <%= f.submit "送信", class: "btn btn-sm btn-outline-success" %>
-      <% end %>
+<% if user_signed_in? %>
+  <%= form_with(model:[post, post_comment], remote: true) do |f| %>
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %><br>
+    <%= f.submit "送信", class: "btn btn-sm btn-outline-success" %>
+  <% end %>
+<% end %>

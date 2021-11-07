@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  before_action :authenticate_user!,except: [:index, :show, :create, :edit, :update, :destroy]
   def index
     @genres = Genre.all
     @genre = Genre.new

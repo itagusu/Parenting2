@@ -35,18 +35,17 @@
             <% end %>
           </div>
 
-          <% if user_signed_in? %>
-            <div class="search">
-              <%= form_with url: search_path, local: true, method: :get do |f| %>
-              <div class="search_form">
-                <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
-                </div>
-                <div class="search_btn">
-                <%= f.submit "検索", class: 'btn btn-outline-secondary fas fa-search-plus' %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+          <div class="search">
+            <%= form_with url: search_path, local: true, method: :get do |f| %>
+            <div class="search_form">
+              <%= f.text_field :word, class: "search_text", placeholder: "検索" %>
+              </div>
+              <div class="search_btn">
+              <%= f.submit "検索", class: 'btn btn-outline-secondary fas fa-search-plus' %>
+              </div>
+            <% end %>
+          </div>
+
           <!--パソコンサイズにした時には、サイドバーを使用-->
           <div class="display-block">
             <div class="nav">
@@ -60,12 +59,13 @@
                   <li><%= link_to "投稿一覧", posts_path, class: 'text-decoration-none text-light fas fa-list' %></li>
                   <li><%= link_to "ログアウト", destroy_user_session_path, class: 'text-decoration-none text-light fas fa-sign-out-alt', method: :delete %></li>
                 <% elsif admin_signed_in? %>
-                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'text-decoration-none text-dark', method: :delete %></li>
                   <li><%= link_to "ユーザー一覧", admin_users_path, class: 'text-decoration-none text-dark' %></li>
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'text-decoration-none text-dark' %></li>
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'text-decoration-none text-dark', method: :delete %></li>
                 <% else %>
                   <li><%= link_to "サイト概要", about_path, class: 'text-decoration-none text-light fas fa-exclamation-circle' %></li>
                   <li><%= link_to "ユーザー一覧", users_path, class: 'text-decoration-none text-light fas fa-users' %></li>
+                  <li><%= link_to "投稿一覧", posts_path, class: 'text-decoration-none text-light fas fa-list' %></li>
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'text-decoration-none text-light fas fa-user-plus' %></li>
                   <li><%= link_to "ログイン", new_user_session_path, class: 'text-decoration-none text-light fas fa-sign-in-alt' %></li>
                 <% end %>

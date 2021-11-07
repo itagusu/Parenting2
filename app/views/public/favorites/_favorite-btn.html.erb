@@ -1,13 +1,15 @@
-<!--ログインしているユーザーがいることを確認-->
-<% if post.favorited_by?(current_user) %>
-  <!--remote: trueは非同期通信のため-->
-  <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-    <i class="fas fa-heart" style="color: deeppink;"></i>
+<% if user_signed_in? %>
+  <!--ログインしているユーザーがいることを確認-->
+  <% if post.favorited_by?(current_user) %>
+    <!--remote: trueは非同期通信のため-->
+    <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+      <i class="fas fa-heart" style="color: deeppink;"></i>
+    <% end %>
+    <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
+  <% else %>
+    <%= link_to post_favorites_path(post),method: :post, remote: true do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+    <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
   <% end %>
-  <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
-<% else %>
-  <%= link_to post_favorites_path(post),method: :post, remote: true do %>
-    <i class="far fa-heart"></i>
-  <% end %>
-  <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
 <% end %>
