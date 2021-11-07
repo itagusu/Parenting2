@@ -1,1 +1,4 @@
 <%= render 'public/users/index', users: @users %>
+<ul class="pagination justify-content-center">
+  <%= paginate @users %>
+</ul>
