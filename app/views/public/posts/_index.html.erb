@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="col-md-7">
-          <p><%= post.body %></p>
+          <p><%= link_to post.body, post_path(post), class: 'text-decoration-none text-dark' %></p>
         </div>
         <div class="col-md-3">
           <div id="favorite_area_<%= post.id %>">
