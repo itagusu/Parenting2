@@ -33,6 +33,8 @@
                   <% end %>
                   <%= ' ' %><%= link_to post.favorites.count, post_favorites_index_path(post) %><%= ' ' %>件のいいね
                 <% end %>
+              <% else %>
+                <%= post.favorites.count %><%= ' ' %>件のいいね
               <% end %>
             </div>
           </div>
