@@ -3,7 +3,7 @@
     <div class="col-md-4 col-sm-6">
       <%= render 'public/searches/genre_list', genres: @genres %>
       <div><br>
-        <h5>いいね週間ランキングTOP３</h5>
+        <h5>いいねランキングTOP３</h5>
         <tbody>
           <% @ranks.each.with_index(1) do |post, i| %>
           <%= i %>位
