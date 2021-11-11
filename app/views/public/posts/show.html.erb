@@ -7,7 +7,7 @@
       <div class="user_profile_image">
         <%= attachment_image_tag @post.user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %><br>
       </div>
-        <p><%= link_to @post.user.last_name + @post.user.first_name, user_path(@post.user), class: 'text-decoration-none text-secondary' %></p><br>
+        <p><%= link_to @post.user.full_name, user_path(@post.user), class: 'text-decoration-none text-secondary' %></p><br>
         <p><%= @post.genre.name %></p>
       <%#= link_to image.avatar, "data-lightbox" => image.avatar do %>
         <%= attachment_image_tag @post, :image, size: "350x300" %><br>

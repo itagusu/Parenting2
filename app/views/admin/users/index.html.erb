@@ -17,7 +17,7 @@
         <tbody class="admin_user_list">
           <td><%= user.id %></td>
           <td class="user_profile_image"><%= attachment_image_tag user, :profile_image, size: "50x50", fallback: "default_profile.jpg" %></td>
-          <td><%= link_to user.last_name + user.first_name, admin_user_path(user) %></td>
+          <td><%= link_to user.full_name, admin_user_path(user) %></td>
           <td><%= user.email %></td>
           <td><%= user.posts.count %></td>
           <td>

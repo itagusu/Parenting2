@@ -23,6 +23,10 @@ class User < ApplicationRecord
   # 通知を受け取る側
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'receive_id', dependent: :destroy
 
+  def full_name
+    last_name + first_name
+  end
+
   # createメソッドはnewとsaveを合わせた記述
   # relationships.create(followed_id: user_id)でも同じ挙動をする
   def follow(user_id)

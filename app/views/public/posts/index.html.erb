@@ -14,7 +14,7 @@
                   <%= attachment_image_tag(post.user, :profile_image, size: "60x60", fallback: "default_profile.jpg") %>
                 <% end %><br>
                 </div>
-                <%= link_to post.user.last_name + post.user.first_name, post_path(post), class: 'text-decoration-none text-secondary' %>
+                <%= link_to post.user.full_name, post_path(post), class: 'text-decoration-none text-secondary' %>
               </td>
               <td><%= post.body %></td>
             </tr><hr>

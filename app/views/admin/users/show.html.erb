@@ -4,7 +4,7 @@
     <div class="user_profile_image">
       <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "default_profile.jpg" %>
     </div>
-    名前:<%= @user.last_name %><%= @user.first_name %><br><br>
+    名前:<%= @user.full_name %><br><br>
     メールアドレス:<%= @user.email %><br><br>
     自己紹介文:<%= @user.introduction %><br><br>
     会員ステータス:

@@ -8,7 +8,7 @@
         <%= link_to user_path(sender) do %>
           <%= attachment_image_tag(sender, :profile_image, size: "35x35", fallback: "default_profile.jpg") %>
         <% end %>
-      <%= link_to sender.last_name + sender.first_name, user_path(sender), class: 'text-decoration-none text-info' %>さんが
+      <%= link_to sender.full_name, user_path(sender), class: 'text-decoration-none text-info' %>さんが
 
       <% if notification.action == 'follow' %>
         あなたをフォローしました。
