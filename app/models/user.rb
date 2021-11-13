@@ -43,7 +43,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
+  # 退会フラグfalseが有効　trueが
   def active_for_authentication?
     is_deleted == false
   end
