@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).per(10).order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(30).order(created_at: :desc)
     @genres = Genre.all
     # いいねの週間ランキング実装
     @ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))

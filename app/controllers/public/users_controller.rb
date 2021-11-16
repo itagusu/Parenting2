@@ -2,12 +2,12 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!,except: [:index, :show]
 
   def index
-    @users = User.page(params[:page]).per(10).order(created_at: :desc)
+    @users = User.page(params[:page]).per(30).order(created_at: :desc)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).per(10).order(created_at: :desc)
+    @posts = @user.posts.page(params[:page]).per(30).order(created_at: :desc)
   end
 
   def edit
@@ -37,7 +37,7 @@ class Public::UsersController < ApplicationController
 
   def my_page
     @user = current_user
-    @posts = @user.posts.page(params[:page]).per(10).order(created_at: :desc)
+    @posts = @user.posts.page(params[:page]).per(30).order(created_at: :desc)
   end
 
   def favorite

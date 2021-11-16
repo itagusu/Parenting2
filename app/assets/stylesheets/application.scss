@@ -151,6 +151,16 @@ p, ol, ul, td {
   display: none!important;
 }
 
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width: 50px;
+  height: 50px;
+}
+
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
   .display-block {
@@ -241,4 +251,3 @@ p, ol, ul, td {
     }
   }
 }
-
