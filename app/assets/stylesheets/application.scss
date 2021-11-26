@@ -163,6 +163,18 @@ p, ol, ul, td {
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:425px) {
+  #top{
+    .main-visual-content {
+      width: 70%;
+      height: 250px;
+    }
+  }
+  #about{
+    .main-visual-content {
+      width: 70%;
+      height: 300px;
+    }
+  }
   .display-block {
     display: none!important;
   }
