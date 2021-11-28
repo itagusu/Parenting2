@@ -34,9 +34,13 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to my_page_path
+    @post = Post.find(params[:id])
+    if @post.user.id ==current_user.id
+      @post.destroy
+      redirect_to my_page_path
+    else
+      redirect_to post_path(@post)
+    end
   end
 
   def set_genres
