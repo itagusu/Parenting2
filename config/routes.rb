@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       passwords: 'public/passwords',
       registrations: 'public/registrations'
     }
+
     root to: 'homes#top'
     get 'about' => 'homes#about'
     get 'my_page' => 'users#my_page'
