@@ -14,10 +14,5 @@
   フォロー:<%= link_to user.followings.count, user_followings_path(user) %>
   フォロワー:<%= link_to user.followers.count, user_followers_path(user) %>
 </p>
-<p>
-  <!--ログインユーザーのみ編集ボタン設置-->
-  <% if user == current_user %>
-    <%= link_to "", edit_user_path(user), class: "btn btn-outline-warning w-25 fas fa-user-edit" %>
-  <% end %>
-</p>
+
 
