@@ -23,6 +23,10 @@ class User < ApplicationRecord
   # 通知を受け取る側
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'receive_id', dependent: :destroy
 
+  has_many :user_rooms
+  has_many :chats,dependent: :destroy
+  has_many :rooms, through: :user_rooms
+
   def full_name
     last_name + first_name
   end

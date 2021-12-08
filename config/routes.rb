@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: %i[create destroy]
     end
     resources :notifications, only: :index
+    resources :chats, only: [:show, :create]
   end
 
   namespace :admin do
