@@ -1,14 +1,17 @@
-<h5 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.full_name %> さんとのチャット</h5>
+<h5 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.full_name %></h5>
 
-<div class="message" style="width: 90%;">
+<div class="message">
   <% @chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
-      <p class="user_profile_image" style="text-align: right;">
+      <p class="chat_right">
         <%= chat.message %>
-        <%= attachment_image_tag chat.user, :profile_image, size: "30x30", fallback: "default_profile.jpg" %>
+        <%#= attachment_image_tag chat.user, :profile_image, size: "30x30", fallback: "default_profile.jpg" %>
       </p>
     <% else %>
-      <p class="user_profile_image" style="text-align: left;"><%= attachment_image_tag chat.user, :profile_image, size: "30x30", fallback: "default_profile.jpg" %><%= chat.message %></p>
+      <div class="chat_partner">
+        <p class="user_profile_image"><%= attachment_image_tag chat.user, :profile_image, size: "30x30", fallback: "default_profile.jpg" %></p>
+        <p class="chat_left"><%= chat.message %></p>
+      </div>
     <% end %>
   <% end %>
 </div>
